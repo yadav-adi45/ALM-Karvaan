@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALM | Audio Playground</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="container" style="padding-top: 40px">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 30px;
+        "
+      >
+        <div>
+          <a class="btn btn-back" href="index.html">← Back to Home</a>
+          <h2 style="color: var(--text-dark); font-size: 2.2rem">
+            Audio Playground
+          </h2>
+          <p style="color: var(--text-muted); margin-top: 5px">
+            Analyze, denoise, and extract insights from your audio
+          </p>
+        </div>
+        <div style="text-align: right">
+          <div style="font-size: 2.5rem">👋</div>
+          <p
+            style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px"
+          >
+            Welcome back!
+          </p>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-grid" style="margin-bottom: 30px">
+        <div class="stat-card">
+          <div class="stat-label">Files Processed</div>
+          <div class="stat-value">12</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Duration</div>
+          <div class="stat-value">2h 34m</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg Accuracy</div>
+          <div class="stat-value">94%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Last Used</div>
+          <div class="stat-value">Today</div>
+        </div>
+      </div>
+
+      <div class="grid-layout">
+        <div style="display: flex; flex-direction: column; gap: 25px">
+          <div
+            class="card upload-box"
+            onclick="document.getElementById('file-input').click()"
+          >
+            <div style="font-size: 3.5rem; margin-bottom: 15px">📁</div>
+            <h3>Upload Audio File</h3>
+            <p style="color: var(--text-muted); margin-top: 5px">
+              WAV, MP3, FLAC (Max 50MB)
+            </p>
+            <input
+              type="file"
+              id="file-input"
+              hidden
+              onchange="handleProcess(this)"
+            />
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="card">
+            <h4 style="margin-bottom: 15px; color: var(--text-dark)">
+              Quick Actions
+            </h4>
+            <div style="display: flex; gap: 10px; flex-direction: column">
+              <button class="quick-action-btn">🎙️ Record Audio</button>
+              <button class="quick-action-btn">📝 Batch Process</button>
+              <button class="quick-action-btn">⚙️ Advanced Settings</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card chat-window">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 15px;
+            "
+          >
+            <h4>AI Analysis Report</h4>
+            <span
+              style="
+                font-size: 0.8rem;
+                background: var(--accent-light);
+                color: var(--accent-blue);
+                padding: 4px 10px;
+                border-radius: 20px;
+              "
+              class="realtime-badge"
+              >Real-time</span
+            >
+          </div>
+          <div class="chat-box" id="chat-box">
+            <div class="msg msg-ai">
+              Welcome! Please upload an audio file to start real-time analysis.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Files -->
+      <div style="margin-top: 25px">
+        <h4 style="margin-bottom: 15px; color: var(--text-dark)">
+          Recent Analyses
+        </h4>
+        <div id="recent-files" style="display: grid; gap: 12px">
+          <div class="recent-file-item">
+            <span style="font-weight: 500">meeting_2025.mp3</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted)"
+              >2 hours ago</span
+            >
+          </div>
+          <div class="recent-file-item">
+            <span style="font-weight: 500">ambient_sounds.wav</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted)"
+              >Yesterday</span
+            >
+          </div>
+          <div class="recent-file-item">
+            <span style="font-weight: 500">podcast_episode_5.flac</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted)"
+              >3 days ago</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+          document.documentElement.classList.add("dark-mode");
+        }
+      });
+
+      function handleProcess(input) {
+        if (!input.files[0]) return;
+        const chat = document.getElementById("chat-box");
+
+        const userMsg = document.createElement("div");
+        userMsg.className = "msg msg-user";
+        userMsg.innerText = `Uploaded: ${input.files[0].name}`;
+        chat.appendChild(userMsg);
+
+        setTimeout(() => {
+          const aiMsg = document.createElement("div");
+          aiMsg.className = "msg msg-ai";
+          aiMsg.innerHTML = `<strong>Result:</strong><br>Denoising complete. <br>Detected: **Street Crowd** with background music.`;
+          chat.appendChild(aiMsg);
+          chat.scrollTop = chat.scrollHeight;
+        }, 1500);
+      }
+    </script>
+  </body>
+</html>
