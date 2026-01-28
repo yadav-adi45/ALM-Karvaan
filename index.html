@@ -1,0 +1,1232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALM | Smart Audio Intelligence</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo-container">
+        <svg
+          class="logo-icon"
+          viewBox="0 0 120 80"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!-- Waveform bars -->
+          <g class="waveform-bars">
+            <rect
+              x="8"
+              y="30"
+              width="6"
+              height="20"
+              fill="currentColor"
+              rx="3"
+              class="bar bar-1"
+            />
+            <rect
+              x="20"
+              y="10"
+              width="6"
+              height="60"
+              fill="currentColor"
+              rx="3"
+              class="bar bar-2"
+            />
+            <rect
+              x="32"
+              y="20"
+              width="6"
+              height="40"
+              fill="currentColor"
+              rx="3"
+              class="bar bar-3"
+            />
+            <rect
+              x="44"
+              y="28"
+              width="6"
+              height="24"
+              fill="currentColor"
+              rx="3"
+              class="bar bar-4"
+            />
+            <rect
+              x="56"
+              y="15"
+              width="6"
+              height="50"
+              fill="currentColor"
+              rx="3"
+              class="bar bar-5"
+            />
+            <rect
+              x="68"
+              y="8"
+              width="6"
+              height="64"
+              fill="currentColor"
+              rx="3"
+              class="bar bar-6"
+            />
+            <rect
+              x="80"
+              y="22"
+              width="6"
+              height="36"
+              fill="currentColor"
+              rx="3"
+              class="bar bar-7"
+            />
+            <rect
+              x="92"
+              y="30"
+              width="6"
+              height="20"
+              fill="currentColor"
+              rx="3"
+              class="bar bar-8"
+            />
+          </g>
+        </svg>
+        <span class="logo-text">NoiseMachine</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#docs" class="nav-link">Docs</a>
+      </div>
+
+      <!-- Actions -->
+      <div id="nav-actions">
+        <button
+          class="dark-mode-toggle"
+          id="darkModeBtn"
+          onclick="toggleDarkMode()"
+          title="Toggle dark mode"
+        >
+          <svg
+            class="sun-icon"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg
+            class="moon-icon"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="btn btn-secondary" onclick="showSignup()">
+          Sign Up
+        </button>
+        <button class="btn btn-primary" onclick="showLogin()">Login</button>
+      </div>
+    </nav>
+
+    <section id="landing-page" class="landing-page-extended">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <!-- Animated Background Elements -->
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+          <div class="shape shape-4"></div>
+          <div class="shape shape-5"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="hero-content">
+          <div class="hero-left">
+            <p
+              style="
+                color: var(--accent-blue);
+                font-weight: 700;
+                letter-spacing: 1px;
+                margin-bottom: 15px;
+                font-size: 0.95rem;
+                animation: slideInDown 0.8s ease-out;
+              "
+            >
+              ✨ NEXT-GEN AUDIO AI
+            </p>
+            <h1 class="hero-title">
+              Smart Analysis for <br /><span>Every Sound.</span>
+            </h1>
+            <p
+              style="
+                color: var(--text-muted);
+                max-width: 500px;
+                font-size: 1.1rem;
+                margin-bottom: 40px;
+                animation: slideInUp 0.8s ease-out 0.2s backwards;
+              "
+            >
+              Professional tools to denoise audio, identify environments, and
+              extract insights with precision. Powered by advanced machine
+              learning.
+            </p>
+
+            <button
+              class="btn btn-primary btn-hero"
+              style="padding: 16px 45px; font-size: 1rem"
+              onclick="showLogin()"
+            >
+              Run the Machine →
+            </button>
+          </div>
+
+          <!-- Sign Up Box -->
+          <div class="hero-right">
+            <div class="signup-box">
+              <h3 style="margin-bottom: 25px; color: var(--text-dark)">
+                Sign Up to Get Started
+              </h3>
+
+              <div style="margin-bottom: 18px">
+                <label
+                  style="
+                    display: block;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    margin-bottom: 6px;
+                    color: var(--text-dark);
+                    text-align: left;
+                  "
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  placeholder="John Doe"
+                  style="
+                    width: 100%;
+                    padding: 11px 14px;
+                    border: 1px solid var(--border);
+                    border-radius: 8px;
+                    font-size: 0.9rem;
+                    font-family: var(--font);
+                    transition: 0.3s;
+                  "
+                  onfocus="
+                    this.style.borderColor = 'var(--accent-blue)';
+                    this.style.boxShadow = '0 0 0 3px rgba(0, 102, 255, 0.1)';
+                  "
+                  onblur="
+                    this.style.borderColor = 'var(--border)';
+                    this.style.boxShadow = 'none';
+                  "
+                />
+              </div>
+
+              <div style="margin-bottom: 18px">
+                <label
+                  style="
+                    display: block;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    margin-bottom: 6px;
+                    color: var(--text-dark);
+                    text-align: left;
+                  "
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  style="
+                    width: 100%;
+                    padding: 11px 14px;
+                    border: 1px solid var(--border);
+                    border-radius: 8px;
+                    font-size: 0.9rem;
+                    font-family: var(--font);
+                    transition: 0.3s;
+                  "
+                  onfocus="
+                    this.style.borderColor = 'var(--accent-blue)';
+                    this.style.boxShadow = '0 0 0 3px rgba(0, 102, 255, 0.1)';
+                  "
+                  onblur="
+                    this.style.borderColor = 'var(--border)';
+                    this.style.boxShadow = 'none';
+                  "
+                />
+              </div>
+
+              <div style="margin-bottom: 20px">
+                <label
+                  style="
+                    display: block;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    margin-bottom: 6px;
+                    color: var(--text-dark);
+                    text-align: left;
+                  "
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  placeholder="Create a password"
+                  style="
+                    width: 100%;
+                    padding: 11px 14px;
+                    border: 1px solid var(--border);
+                    border-radius: 8px;
+                    font-size: 0.9rem;
+                    font-family: var(--font);
+                    transition: 0.3s;
+                  "
+                  onfocus="
+                    this.style.borderColor = 'var(--accent-blue)';
+                    this.style.boxShadow = '0 0 0 3px rgba(0, 102, 255, 0.1)';
+                  "
+                  onblur="
+                    this.style.borderColor = 'var(--border)';
+                    this.style.boxShadow = 'none';
+                  "
+                />
+              </div>
+
+              <button
+                style="
+                  width: 100%;
+                  padding: 12px 20px;
+                  background: var(--accent-blue);
+                  color: white;
+                  border: none;
+                  border-radius: 8px;
+                  font-weight: 600;
+                  cursor: pointer;
+                  transition: 0.3s;
+                  margin-bottom: 12px;
+                "
+                onmouseover="this.style.background = '#0052cc'"
+                onmouseout="this.style.background = 'var(--accent-blue)'"
+              >
+                Sign Up Now!
+              </button>
+
+              <p
+                style="
+                  text-align: center;
+                  font-size: 0.8rem;
+                  color: var(--text-muted);
+                  margin-bottom: 15px;
+                "
+              >
+                Or
+                <span
+                  style="
+                    color: var(--accent-blue);
+                    cursor: pointer;
+                    font-weight: 600;
+                  "
+                  onclick="showLogin()"
+                  >sign in</span
+                >
+                if you have an account
+              </p>
+
+              <div
+                style="
+                  padding-top: 15px;
+                  border-top: 1px solid var(--border);
+                  text-align: center;
+                "
+              >
+                <p
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--text-muted);
+                    line-height: 1.5;
+                  "
+                >
+                  By signing up, you agree to our<br />
+                  <span style="color: var(--accent-blue); cursor: pointer"
+                    >Terms of Service</span
+                  >
+                  and
+                  <span style="color: var(--accent-blue); cursor: pointer"
+                    >Privacy Policy</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Animated Audio Wave -->
+        <div class="audio-wave-container">
+          <div class="audio-wave">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+            <div class="wave wave-4"></div>
+            <div class="wave wave-5"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="features-section">
+        <h2
+          style="
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+          "
+        >
+          Powerful Features
+        </h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎵</div>
+            <h3>Audio Denoising</h3>
+            <p>
+              Remove background noise and enhance clarity with AI-powered
+              denoising technology.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Environment Detection</h3>
+            <p>
+              Automatically identify locations and environments from audio
+              signals.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Real-time Analysis</h3>
+            <p>
+              Get instant insights and detailed reports on audio
+              characteristics.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure & Private</h3>
+            <p>
+              Your audio data is processed securely with enterprise-grade
+              encryption.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Lightning Fast</h3>
+            <p>
+              Process files up to 50MB in seconds with our optimized
+              infrastructure.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>ML-Powered</h3>
+            <p>
+              State-of-the-art machine learning models for accurate predictions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works Section -->
+      <div class="how-it-works-section">
+        <h2
+          style="
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+          "
+        >
+          How It Works
+        </h2>
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Upload</h3>
+            <p>Drag & drop or select your audio file</p>
+          </div>
+          <div class="step-divider">→</div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Process</h3>
+            <p>AI analyzes your audio in real-time</p>
+          </div>
+          <div class="step-divider">→</div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Insights</h3>
+            <p>Get detailed reports and analytics</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="stats-section">
+        <div class="stat-item">
+          <div class="stat-number">10M+</div>
+          <div class="stat-text">Audio Files Processed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">99.9%</div>
+          <div class="stat-text">Accuracy Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-text">Always Available</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50k+</div>
+          <div class="stat-text">Active Users</div>
+        </div>
+      </div>
+
+      <!-- Testimonials Section -->
+      <div class="testimonials-section">
+        <h2
+          style="
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+          "
+        >
+          What Users Say
+        </h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div style="color: var(--accent-blue); margin-bottom: 10px">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <p
+              style="
+                color: var(--text-muted);
+                margin-bottom: 15px;
+                line-height: 1.6;
+              "
+            >
+              "Amazing quality! The denoising feature is incredibly accurate and
+              saves me hours of manual work."
+            </p>
+            <div style="font-weight: 600; color: var(--text-dark)">
+              Md Aadil Ansari
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted)">
+              Java Developer
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div style="color: var(--accent-blue); margin-bottom: 10px">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <p
+              style="
+                color: var(--text-muted);
+                margin-bottom: 15px;
+                line-height: 1.6;
+              "
+            >
+              "Best investment for our audio editing workflow. Worth every
+              penny!"
+            </p>
+            <div style="font-weight: 600; color: var(--text-dark)">
+              Anuj Kumar
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted)">
+              Audio Engineer
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div style="color: var(--accent-blue); margin-bottom: 10px">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <p
+              style="
+                color: var(--text-muted);
+                margin-bottom: 15px;
+                line-height: 1.6;
+              "
+            >
+              "Fast, reliable, and incredibly intuitive. My go-to tool for audio
+              analysis."
+            </p>
+            <div style="font-weight: 600; color: var(--text-dark)">
+              Aklavya Yadav
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted)">
+              Ai Developer
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <h2>Ready to Transform Your Audio?</h2>
+        <p>Start analyzing audio files in seconds. No credit card required.</p>
+        <button
+          class="btn btn-primary btn-cta"
+          style="padding: 16px 45px; font-size: 1rem"
+          onclick="showLogin()"
+        >
+          Get Started Free →
+        </button>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <span class="logo-text">NoiseMachine</span>
+          </div>
+          <p class="footer-text">
+            ALM is your smart audio intelligence platform to analyze, denoise,
+            and extract insights from every sound.
+          </p>
+          <div class="footer-tags">
+            <span class="footer-chip">AI Audio</span>
+            <span class="footer-chip">Real-time</span>
+            <span class="footer-chip">Secure</span>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="features.html">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#about">About</a>
+            <a href="#docs">Docs</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-title">Contact</h4>
+          <div class="footer-contact">
+            <p>
+              <strong>Phone:</strong>
+              <a href="tel:+911234567890">+91 12345 67890</a>
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:support@noisemachine.ai"
+                >support@noisemachine.ai</a
+              >
+            </p>
+            <p>
+              <strong>Address:</strong>
+              21, Tech Park Avenue, Bengaluru, KA 560001
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-title">Working Hours</h4>
+          <p class="footer-text">Mon - Fri: 9:00 AM - 7:00 PM IST</p>
+          <p class="footer-text">Sat: 10:00 AM - 4:00 PM IST</p>
+          <p class="footer-text">Sun: Closed</p>
+          <div class="footer-links" style="margin-top: 12px">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 NoiseMachine by Karvaan. All rights reserved.</span>
+        <span>Built for intelligent audio workflows.</span>
+      </div>
+    </footer>
+
+    <div
+      id="login-modal"
+      class="hidden"
+      style="
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+      "
+    >
+      <!-- Login Form Stage -->
+      <div id="login-stage" class="card" style="width: 420px">
+        <div style="text-align: center; margin-bottom: 30px">
+          <h2 style="margin-bottom: 8px">Welcome to ALM</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem">
+            Smart Audio Intelligence Platform
+          </p>
+        </div>
+
+        <form id="login-form" onsubmit="handleLoginSubmit(event)">
+          <!-- Email Input -->
+          <div style="margin-bottom: 20px">
+            <label
+              style="
+                display: block;
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin-bottom: 8px;
+                color: var(--text-dark);
+              "
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email-input"
+              placeholder="you@example.com"
+              required
+              style="
+                width: 100%;
+                padding: 12px 16px;
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                font-size: 0.95rem;
+                font-family: var(--font);
+                transition: 0.3s;
+              "
+              onfocus="
+                this.style.borderColor = 'var(--accent-blue)';
+                this.style.boxShadow = '0 0 0 3px rgba(0, 102, 255, 0.1)';
+              "
+              onblur="
+                this.style.borderColor = 'var(--border)';
+                this.style.boxShadow = 'none';
+              "
+            />
+          </div>
+
+          <!-- Password Input -->
+          <div style="margin-bottom: 25px">
+            <label
+              style="
+                display: block;
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin-bottom: 8px;
+                color: var(--text-dark);
+              "
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password-input"
+              placeholder="Enter your password"
+              required
+              style="
+                width: 100%;
+                padding: 12px 16px;
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                font-size: 0.95rem;
+                font-family: var(--font);
+                transition: 0.3s;
+              "
+              onfocus="
+                this.style.borderColor = 'var(--accent-blue)';
+                this.style.boxShadow = '0 0 0 3px rgba(0, 102, 255, 0.1)';
+              "
+              onblur="
+                this.style.borderColor = 'var(--border)';
+                this.style.boxShadow = 'none';
+              "
+            />
+          </div>
+
+          <!-- CAPTCHA Section -->
+          <div
+            style="
+              margin-bottom: 25px;
+              border: 1px solid var(--border);
+              border-radius: 10px;
+              padding: 15px;
+              background: var(--bg-main);
+            "
+          >
+            <p
+              style="
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin-bottom: 12px;
+                color: var(--text-dark);
+              "
+            >
+              Verify you're human
+            </p>
+            <div
+              style="
+                background: white;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                padding: 15px;
+                margin-bottom: 12px;
+              "
+            >
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-muted);
+                  margin-bottom: 8px;
+                "
+              >
+                Solve this math problem:
+              </p>
+              <p
+                style="
+                  font-size: 1.5rem;
+                  font-weight: 700;
+                  color: var(--text-dark);
+                  margin: 10px 0;
+                  text-align: center;
+                "
+                id="captcha-question"
+              >
+                5 + 3 = ?
+              </p>
+            </div>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px">
+              <input
+                type="text"
+                id="captcha-code-input"
+                placeholder="Enter the answer"
+                style="
+                  flex: 1;
+                  padding: 11px 14px;
+                  border: 1px solid var(--border);
+                  border-radius: 8px;
+                  font-size: 0.95rem;
+                  font-family: var(--font);
+                  transition: 0.3s;
+                "
+                onfocus="
+                  this.style.borderColor = 'var(--accent-blue)';
+                  this.style.boxShadow = '0 0 0 3px rgba(0, 102, 255, 0.1)';
+                "
+                onblur="
+                  this.style.borderColor = 'var(--border)';
+                  this.style.boxShadow = 'none';
+                "
+              />
+              <button
+                type="button"
+                style="
+                  padding: 11px 16px;
+                  background: white;
+                  border: 1px solid var(--border);
+                  border-radius: 8px;
+                  cursor: pointer;
+                  font-weight: 600;
+                  color: var(--accent-blue);
+                  transition: 0.3s;
+                "
+                onmouseover="this.style.background = 'var(--accent-light)'"
+                onmouseout="this.style.background = 'white'"
+                onclick="generateNewCaptcha()"
+              >
+                🔄 New
+              </button>
+            </div>
+            <input type="hidden" id="captcha-answer" value="" />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="width: 100%; margin-bottom: 12px; padding: 12px"
+          >
+            Continue to OTP
+          </button>
+        </form>
+
+        <button
+          class="btn"
+          style="
+            width: 100%;
+            color: var(--text-muted);
+            background: transparent;
+            border: 1px solid var(--border);
+          "
+          onclick="hideLogin()"
+        >
+          Cancel
+        </button>
+
+        <div style="text-align: center; margin-top: 15px">
+          <p style="font-size: 0.85rem; color: var(--text-muted)">
+            Don't have an account?
+            <span
+              style="
+                color: var(--accent-blue);
+                cursor: pointer;
+                font-weight: 600;
+              "
+              >Sign up</span
+            >
+          </p>
+        </div>
+      </div>
+
+      <!-- OTP Verification Stage -->
+      <div id="otp-stage" class="hidden card" style="width: 420px">
+        <div style="text-align: center; margin-bottom: 30px">
+          <button
+            style="
+              background: none;
+              border: none;
+              font-size: 1.5rem;
+              cursor: pointer;
+              margin-bottom: 10px;
+            "
+            onclick="goBackToLogin()"
+          >
+            ←
+          </button>
+          <h2 style="margin-bottom: 8px">Verify Your Identity</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem">
+            Enter the 6-digit OTP sent to your email
+          </p>
+        </div>
+
+        <form id="otp-form" onsubmit="handleOTPSubmit(event)">
+          <!-- OTP Input -->
+          <div style="margin-bottom: 25px; text-align: center">
+            <div
+              style="
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                margin-bottom: 20px;
+              "
+            >
+              <input
+                class="otp-input"
+                maxlength="1"
+                type="text"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  font-size: 1.5rem;
+                  text-align: center;
+                  border: 2px solid var(--border);
+                  border-radius: 8px;
+                  font-weight: 600;
+                "
+                oninput="moveToNextOTP(this)"
+              />
+              <input
+                class="otp-input"
+                maxlength="1"
+                type="text"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  font-size: 1.5rem;
+                  text-align: center;
+                  border: 2px solid var(--border);
+                  border-radius: 8px;
+                  font-weight: 600;
+                "
+                oninput="moveToNextOTP(this)"
+              />
+              <input
+                class="otp-input"
+                maxlength="1"
+                type="text"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  font-size: 1.5rem;
+                  text-align: center;
+                  border: 2px solid var(--border);
+                  border-radius: 8px;
+                  font-weight: 600;
+                "
+                oninput="moveToNextOTP(this)"
+              />
+              <input
+                class="otp-input"
+                maxlength="1"
+                type="text"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  font-size: 1.5rem;
+                  text-align: center;
+                  border: 2px solid var(--border);
+                  border-radius: 8px;
+                  font-weight: 600;
+                "
+                oninput="moveToNextOTP(this)"
+              />
+              <input
+                class="otp-input"
+                maxlength="1"
+                type="text"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  font-size: 1.5rem;
+                  text-align: center;
+                  border: 2px solid var(--border);
+                  border-radius: 8px;
+                  font-weight: 600;
+                "
+                oninput="moveToNextOTP(this)"
+              />
+              <input
+                class="otp-input"
+                maxlength="1"
+                type="text"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  font-size: 1.5rem;
+                  text-align: center;
+                  border: 2px solid var(--border);
+                  border-radius: 8px;
+                  font-weight: 600;
+                "
+                oninput="moveToNextOTP(this)"
+              />
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted)">
+              Resend OTP in
+              <span
+                id="timer"
+                style="color: var(--accent-blue); font-weight: 600"
+                >60</span
+              >s
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="width: 100%; margin-bottom: 12px; padding: 12px"
+          >
+            Verify & Login
+          </button>
+        </form>
+
+        <button
+          class="btn"
+          style="
+            width: 100%;
+            color: var(--text-muted);
+            background: transparent;
+            border: 1px solid var(--border);
+          "
+          onclick="hideLogin()"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let captchaSelected = false;
+      let otpTimer = null;
+
+      // Dark Mode Toggle
+      function toggleDarkMode() {
+        const html = document.documentElement;
+        const isDarkMode = html.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode);
+      }
+
+      // Initialize Dark Mode on Page Load
+      document.addEventListener("DOMContentLoaded", function () {
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+          document.documentElement.classList.add("dark-mode");
+        }
+      });
+
+      // Show/Hide Login Modal
+      function showLogin() {
+        document.getElementById("login-modal").classList.remove("hidden");
+        document.getElementById("login-stage").classList.remove("hidden");
+        document.getElementById("otp-stage").classList.add("hidden");
+        initializeCaptcha();
+      }
+
+      function hideLogin() {
+        document.getElementById("login-modal").classList.add("hidden");
+        document.getElementById("login-form").reset();
+        resetCaptcha();
+        clearOTPTimer();
+      }
+
+      // CAPTCHA Functions
+      let captchaCorrectAnswer = 0;
+
+      function initializeCaptcha() {
+        generateNewCaptcha();
+        captchaSelected = false;
+        document.getElementById("captcha-code-input").value = "";
+      }
+
+      function generateNewCaptcha() {
+        const num1 = Math.floor(Math.random() * 20) + 1;
+        const num2 = Math.floor(Math.random() * 20) + 1;
+        const operators = ["+", "-", "*"];
+        const operator =
+          operators[Math.floor(Math.random() * operators.length)];
+
+        captchaCorrectAnswer = eval(`${num1} ${operator} ${num2}`);
+
+        document.getElementById("captcha-question").textContent =
+          `${num1} ${operator} ${num2} = ?`;
+        document.getElementById("captcha-code-input").value = "";
+        document.getElementById("captcha-answer").value =
+          captchaCorrectAnswer.toString();
+      }
+
+      function resetCaptcha() {
+        document.getElementById("captcha-code-input").value = "";
+      }
+
+      // OTP Functions
+      function moveToNextOTP(input) {
+        if (input.value.length === 1 && /[0-9]/.test(input.value)) {
+          const nextInput = input.nextElementSibling;
+          if (nextInput && nextInput.classList.contains("otp-input")) {
+            nextInput.focus();
+          }
+        } else if (input.value.length === 0) {
+          const prevInput = input.previousElementSibling;
+          if (prevInput && prevInput.classList.contains("otp-input")) {
+            prevInput.focus();
+          }
+        }
+      }
+
+      function startOTPTimer() {
+        let seconds = 60;
+        const timerElement = document.getElementById("timer");
+
+        clearOTPTimer();
+
+        otpTimer = setInterval(() => {
+          seconds--;
+          timerElement.textContent = seconds;
+
+          if (seconds === 0) {
+            clearOTPTimer();
+            timerElement.textContent = "Resend";
+            timerElement.style.cursor = "pointer";
+          }
+        }, 1000);
+      }
+
+      function clearOTPTimer() {
+        if (otpTimer) {
+          clearInterval(otpTimer);
+          otpTimer = null;
+        }
+      }
+
+      // Form Handlers
+      function handleLoginSubmit(event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email-input").value;
+        const password = document.getElementById("password-input").value;
+        const captchaInput =
+          document.getElementById("captcha-code-input").value;
+        const correctAnswer = parseInt(
+          document.getElementById("captcha-answer").value,
+        );
+
+        if (!email || !password) {
+          alert("Please enter email and password");
+          return;
+        }
+
+        if (!captchaInput) {
+          alert("Please solve the CAPTCHA");
+          return;
+        }
+
+        if (parseInt(captchaInput) !== correctAnswer) {
+          alert("CAPTCHA answer is incorrect. Please try again.");
+          document.getElementById("captcha-code-input").value = "";
+          generateNewCaptcha();
+          return;
+        }
+
+        // All validations passed - Transition to OTP stage
+        document.getElementById("login-stage").classList.add("hidden");
+        document.getElementById("otp-stage").classList.remove("hidden");
+        startOTPTimer();
+
+        // Focus on first OTP input
+        document.querySelector(".otp-input").focus();
+      }
+
+      function handleOTPSubmit(event) {
+        event.preventDefault();
+
+        const otpInputs = document.querySelectorAll(".otp-input");
+        const otp = Array.from(otpInputs)
+          .map((input) => input.value)
+          .join("");
+
+        if (otp.length === 6 && /^[0-9]{6}$/.test(otp)) {
+          // OTP verified - redirect to Audio Playground
+          document.getElementById("login-form").reset();
+          resetCaptcha();
+          clearOTPTimer();
+          otpInputs.forEach((input) => (input.value = ""));
+          window.location.href = "audio-playground.html";
+        } else {
+          alert("Please enter a valid 6-digit OTP");
+        }
+      }
+
+      function goBackToLogin() {
+        document.getElementById("otp-stage").classList.add("hidden");
+        document.getElementById("login-stage").classList.remove("hidden");
+        clearOTPTimer();
+        document
+          .querySelectorAll(".otp-input")
+          .forEach((input) => (input.value = ""));
+      }
+    </script>
+  </body>
+</html>
