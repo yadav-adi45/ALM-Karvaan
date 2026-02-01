@@ -879,10 +879,19 @@ h1 span { color: var(--accent-blue); }
 
 .card {
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    border: 1.5px solid var(--border);
     border-radius: 20px;
-    padding: 30px;
-    box-shadow: var(--shadow);
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+:root.dark-mode .card {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Upload Area */
@@ -1360,5 +1369,191 @@ h1 span { color: var(--accent-blue); }
         width: 35px !important;
         height: 35px !important;
         font-size: 1rem !important;
+    }
+}
+
+/* --- SUCCESS SCREEN --- */
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(4px);
+    }
+}
+
+.success-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 60px 40px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid var(--border);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    color: white;
+    animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s backwards;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-icon svg {
+    stroke: currentColor;
+    animation: checkmarkDraw 0.6s ease-out 0.2s backwards;
+}
+
+@keyframes checkmarkDraw {
+    from {
+        stroke-dasharray: 50;
+        stroke-dashoffset: 50;
+        opacity: 0;
+    }
+    to {
+        stroke-dasharray: 50;
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+.success-heading {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    animation: fadeIn 0.6s ease-out 0.2s backwards;
+    letter-spacing: -0.5px;
+}
+
+.success-subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin-bottom: 16px;
+    animation: fadeIn 0.6s ease-out 0.3s backwards;
+}
+
+.success-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.6;
+    animation: fadeIn 0.6s ease-out 0.4s backwards;
+}
+
+.success-button {
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--accent-blue), #a78bfa);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+    animation: fadeIn 0.6s ease-out 0.5s backwards;
+    font-family: var(--font);
+}
+
+.success-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+}
+
+.success-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+/* Dark mode adjustments */
+:root.dark-mode .success-card {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+:root.dark-mode .success-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+    .success-card {
+        padding: 40px 24px;
+        border-radius: 16px;
+    }
+
+    .success-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 24px;
+    }
+
+    .success-heading {
+        font-size: 1.6rem;
+    }
+
+    .success-subtitle {
+        font-size: 1rem;
+    }
+
+    .success-description {
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+    }
+
+    .success-button {
+        padding: 14px 20px;
+        font-size: 0.95rem;
     }
 }
