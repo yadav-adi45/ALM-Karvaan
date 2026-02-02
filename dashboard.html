@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | NoiseMachine</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+      <div class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+          <g class="waveform-bars">
+            <rect x="8" y="30" width="6" height="20" fill="currentColor" rx="3" class="bar bar-1" />
+            <rect x="20" y="10" width="6" height="60" fill="currentColor" rx="3" class="bar bar-2" />
+            <rect x="32" y="20" width="6" height="40" fill="currentColor" rx="3" class="bar bar-3" />
+            <rect x="44" y="28" width="6" height="24" fill="currentColor" rx="3" class="bar bar-4" />
+            <rect x="56" y="15" width="6" height="50" fill="currentColor" rx="3" class="bar bar-5" />
+            <rect x="68" y="8" width="6" height="64" fill="currentColor" rx="3" class="bar bar-6" />
+            <rect x="80" y="22" width="6" height="36" fill="currentColor" rx="3" class="bar bar-7" />
+            <rect x="92" y="30" width="6" height="20" fill="currentColor" rx="3" class="bar bar-8" />
+          </g>
+        </svg>
+        <span class="logo-text">NoiseMachine</span>
+      </div>
+
+      <div class="nav-center">
+        <div class="search-container">
+          <input type="text" placeholder="Search files, analyses..." class="search-input" />
+          <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="notification-btn" onclick="toggleNotifications()">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+          <span class="notification-badge">3</span>
+        </button>
+        
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+          </svg>
+        </button>
+
+        <div class="profile-dropdown" onclick="toggleProfileMenu()">
+          <div class="profile-avatar">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238b5cf6'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-family='Arial'%3EJD%3C/text%3E%3C/svg%3E" alt="Profile" />
+          </div>
+          <span class="profile-name">John Doe</span>
+          <svg class="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Dashboard Layout -->
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-menu">
+          <div class="menu-item active" onclick="showSection('overview')">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Overview</span>
+          </div>
+          
+          <div class="menu-item" onclick="showSection('files')">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14,2 14,8 20,8"></polyline>
+            </svg>
+            <span>My Files</span>
+            <span class="menu-badge">24</span>
+          </div>
+          
+          <div class="menu-item" onclick="showSection('analytics')">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+            </svg>
+            <span>Analytics</span>
+          </div>
+          
+          <div class="menu-item" onclick="showSection('history')">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12,6 12,12 16,14"></polyline>
+            </svg>
+            <span>History</span>
+          </div>
+          
+          <div class="menu-item" onclick="showSection('profile')">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Profile</span>
+          </div>
+          
+          <div class="menu-item" onclick="showSection('settings')">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span>Settings</span>
+          </div>
+        </div>
+        
+        <div class="sidebar-footer">
+          <div class="usage-card">
+            <h4>Storage Used</h4>
+            <div class="usage-bar">
+              <div class="usage-fill" style="width: 68%"></div>
+            </div>
+            <p>6.8 GB of 10 GB used</p>
+            <button class="btn btn-upgrade">Upgrade Plan</button>
+          </div>
+        </div>
+      </aside>
+      <!-- Main Content Area -->
+      <main class="dashboard-main">
+        <!-- Overview Section -->
+        <section id="overview-section" class="dashboard-section active">
+          <div class="section-header">
+            <h1>Welcome back, John! 👋</h1>
+            <p>Here's what's happening with your audio projects today.</p>
+            <button class="btn btn-primary" onclick="window.location.href='audio-playground.html'">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+              New Analysis
+            </button>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="stats-overview">
+            <div class="stat-card-dashboard">
+              <div class="stat-icon">📁</div>
+              <div class="stat-content">
+                <h3>24</h3>
+                <p>Total Files</p>
+                <span class="stat-change positive">+3 this week</span>
+              </div>
+            </div>
+            <div class="stat-card-dashboard">
+              <div class="stat-icon">⏱️</div>
+              <div class="stat-content">
+                <h3>47h 23m</h3>
+                <p>Audio Processed</p>
+                <span class="stat-change positive">+5h 12m</span>
+              </div>
+            </div>
+            <div class="stat-card-dashboard">
+              <div class="stat-icon">🎯</div>
+              <div class="stat-content">
+                <h3>96.4%</h3>
+                <p>Avg Accuracy</p>
+                <span class="stat-change positive">+2.1%</span>
+              </div>
+            </div>
+            <div class="stat-card-dashboard">
+              <div class="stat-icon">💾</div>
+              <div class="stat-content">
+                <h3>6.8 GB</h3>
+                <p>Storage Used</p>
+                <span class="stat-change neutral">68% of plan</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity & Quick Actions -->
+          <div class="dashboard-grid">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <h3>Recent Activity</h3>
+                <button class="btn-link">View All</button>
+              </div>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <div class="activity-icon success">✓</div>
+                  <div class="activity-content">
+                    <p><strong>meeting_recording.mp3</strong> analysis completed</p>
+                    <span class="activity-time">2 minutes ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon processing">⟳</div>
+                  <div class="activity-content">
+                    <p><strong>podcast_episode_12.wav</strong> is being processed</p>
+                    <span class="activity-time">5 minutes ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon success">✓</div>
+                  <div class="activity-content">
+                    <p><strong>ambient_sounds.flac</strong> denoising finished</p>
+                    <span class="activity-time">1 hour ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon upload">↑</div>
+                  <div class="activity-content">
+                    <p><strong>interview_audio.mp3</strong> uploaded successfully</p>
+                    <span class="activity-time">3 hours ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-card">
+              <div class="card-header">
+                <h3>Quick Actions</h3>
+              </div>
+              <div class="quick-actions-grid">
+                <button class="quick-action-card" onclick="window.location.href='audio-playground.html'">
+                  <div class="action-icon">🎵</div>
+                  <h4>Upload & Analyze</h4>
+                  <p>Process new audio files</p>
+                </button>
+                <button class="quick-action-card" onclick="showSection('files')">
+                  <div class="action-icon">📊</div>
+                  <h4>View Reports</h4>
+                  <p>Check analysis results</p>
+                </button>
+                <button class="quick-action-card">
+                  <div class="action-icon">🔄</div>
+                  <h4>Batch Process</h4>
+                  <p>Process multiple files</p>
+                </button>
+                <button class="quick-action-card">
+                  <div class="action-icon">⚙️</div>
+                  <h4>API Access</h4>
+                  <p>Integrate with your apps</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Files Section -->
+        <section id="files-section" class="dashboard-section">
+          <div class="section-header">
+            <h1>My Files</h1>
+            <p>Manage and analyze your audio files</p>
+            <div class="header-actions">
+              <div class="filter-dropdown">
+                <select class="filter-select">
+                  <option>All Files</option>
+                  <option>Processed</option>
+                  <option>Processing</option>
+                  <option>Failed</option>
+                </select>
+              </div>
+              <button class="btn btn-secondary">
+                <svg viewBox="0 0 24 24" width="18" height="18">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7,10 12,15 17,10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Export
+              </button>
+              <button class="btn btn-primary" onclick="window.location.href='audio-playground.html'">
+                <svg viewBox="0 0 24 24" width="18" height="18">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Upload New
+              </button>
+            </div>
+          </div>
+
+          <div class="files-container">
+            <div class="files-grid">
+              <div class="file-card">
+                <div class="file-header">
+                  <div class="file-icon">🎵</div>
+                  <div class="file-status success">✓</div>
+                </div>
+                <div class="file-content">
+                  <h4>meeting_recording.mp3</h4>
+                  <p class="file-details">2.4 MB • 5:23 duration</p>
+                  <p class="file-analysis">Environment: Office • Accuracy: 94%</p>
+                  <div class="file-tags">
+                    <span class="tag">Denoised</span>
+                    <span class="tag">Analyzed</span>
+                  </div>
+                </div>
+                <div class="file-actions">
+                  <button class="btn-icon" title="Download">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7,10 12,15 17,10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </button>
+                  <button class="btn-icon" title="View Report">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                  <button class="btn-icon danger" title="Delete">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <polyline points="3,6 5,6 21,6"></polyline>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="file-card">
+                <div class="file-header">
+                  <div class="file-icon">🎙️</div>
+                  <div class="file-status processing">⟳</div>
+                </div>
+                <div class="file-content">
+                  <h4>podcast_episode_12.wav</h4>
+                  <p class="file-details">15.7 MB • 32:45 duration</p>
+                  <p class="file-analysis">Processing... 67% complete</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 67%"></div>
+                  </div>
+                </div>
+                <div class="file-actions">
+                  <button class="btn-icon" title="Cancel">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="file-card">
+                <div class="file-header">
+                  <div class="file-icon">🎶</div>
+                  <div class="file-status success">✓</div>
+                </div>
+                <div class="file-content">
+                  <h4>ambient_sounds.flac</h4>
+                  <p class="file-details">8.9 MB • 12:15 duration</p>
+                  <p class="file-analysis">Environment: Nature • Accuracy: 98%</p>
+                  <div class="file-tags">
+                    <span class="tag">High Quality</span>
+                    <span class="tag">Denoised</span>
+                  </div>
+                </div>
+                <div class="file-actions">
+                  <button class="btn-icon">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7,10 12,15 17,10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </button>
+                  <button class="btn-icon">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                  <button class="btn-icon danger">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <polyline points="3,6 5,6 21,6"></polyline>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Analytics Section -->
+        <section id="analytics-section" class="dashboard-section">
+          <div class="section-header">
+            <h1>Analytics</h1>
+            <p>Insights and performance metrics for your audio processing</p>
+            <div class="time-filter">
+              <button class="time-btn active">7D</button>
+              <button class="time-btn">30D</button>
+              <button class="time-btn">90D</button>
+              <button class="time-btn">1Y</button>
+            </div>
+          </div>
+
+          <div class="analytics-grid">
+            <div class="analytics-card">
+              <h3>Processing Volume</h3>
+              <div class="chart-container">
+                <div class="chart-placeholder">
+                  <svg viewBox="0 0 300 150" class="chart-svg">
+                    <polyline points="0,120 50,100 100,80 150,60 200,40 250,30 300,20" 
+                              fill="none" stroke="var(--accent-blue)" stroke-width="3"/>
+                    <circle cx="300" cy="20" r="4" fill="var(--accent-blue)"/>
+                  </svg>
+                </div>
+                <div class="chart-stats">
+                  <div class="chart-stat">
+                    <span class="stat-value">47.2h</span>
+                    <span class="stat-label">This Week</span>
+                  </div>
+                  <div class="chart-stat">
+                    <span class="stat-value">+23%</span>
+                    <span class="stat-label">vs Last Week</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="analytics-card">
+              <h3>Accuracy Trends</h3>
+              <div class="accuracy-metrics">
+                <div class="accuracy-item">
+                  <div class="accuracy-label">Environment Detection</div>
+                  <div class="accuracy-bar">
+                    <div class="accuracy-fill" style="width: 96%"></div>
+                  </div>
+                  <div class="accuracy-value">96%</div>
+                </div>
+                <div class="accuracy-item">
+                  <div class="accuracy-label">Noise Reduction</div>
+                  <div class="accuracy-bar">
+                    <div class="accuracy-fill" style="width: 94%"></div>
+                  </div>
+                  <div class="accuracy-value">94%</div>
+                </div>
+                <div class="accuracy-item">
+                  <div class="accuracy-label">Audio Classification</div>
+                  <div class="accuracy-bar">
+                    <div class="accuracy-fill" style="width: 98%"></div>
+                  </div>
+                  <div class="accuracy-value">98%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="analytics-card">
+              <h3>File Types Distribution</h3>
+              <div class="distribution-chart">
+                <div class="pie-chart">
+                  <div class="pie-segment mp3" style="--percentage: 45"></div>
+                  <div class="pie-segment wav" style="--percentage: 30"></div>
+                  <div class="pie-segment flac" style="--percentage: 25"></div>
+                </div>
+                <div class="chart-legend">
+                  <div class="legend-item">
+                    <div class="legend-color mp3"></div>
+                    <span>MP3 (45%)</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color wav"></div>
+                    <span>WAV (30%)</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color flac"></div>
+                    <span>FLAC (25%)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="analytics-card">
+              <h3>Top Environments Detected</h3>
+              <div class="environment-list">
+                <div class="environment-item">
+                  <div class="env-icon">🏢</div>
+                  <div class="env-details">
+                    <span class="env-name">Office/Meeting Room</span>
+                    <span class="env-count">12 files</span>
+                  </div>
+                  <div class="env-percentage">35%</div>
+                </div>
+                <div class="environment-item">
+                  <div class="env-icon">🌳</div>
+                  <div class="env-details">
+                    <span class="env-name">Outdoor/Nature</span>
+                    <span class="env-count">8 files</span>
+                  </div>
+                  <div class="env-percentage">24%</div>
+                </div>
+                <div class="environment-item">
+                  <div class="env-icon">🏠</div>
+                  <div class="env-details">
+                    <span class="env-name">Indoor/Home</span>
+                    <span class="env-count">6 files</span>
+                  </div>
+                  <div class="env-percentage">18%</div>
+                </div>
+                <div class="environment-item">
+                  <div class="env-icon">🚗</div>
+                  <div class="env-details">
+                    <span class="env-name">Vehicle</span>
+                    <span class="env-count">4 files</span>
+                  </div>
+                  <div class="env-percentage">12%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- History Section -->
+        <section id="history-section" class="dashboard-section">
+          <div class="section-header">
+            <h1>Processing History</h1>
+            <p>Complete timeline of your audio processing activities</p>
+            <div class="history-filters">
+              <input type="date" class="date-input" value="2025-02-01">
+              <select class="filter-select">
+                <option>All Activities</option>
+                <option>Uploads</option>
+                <option>Processing</option>
+                <option>Downloads</option>
+                <option>Errors</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="history-timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker success"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>Analysis Completed</h4>
+                  <span class="timeline-time">2 minutes ago</span>
+                </div>
+                <p><strong>meeting_recording.mp3</strong> has been successfully analyzed</p>
+                <div class="timeline-details">
+                  <span class="detail-item">Duration: 5:23</span>
+                  <span class="detail-item">Environment: Office</span>
+                  <span class="detail-item">Accuracy: 94%</span>
+                </div>
+                <div class="timeline-actions">
+                  <button class="btn-link">View Report</button>
+                  <button class="btn-link">Download</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker processing"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>Processing Started</h4>
+                  <span class="timeline-time">5 minutes ago</span>
+                </div>
+                <p><strong>podcast_episode_12.wav</strong> processing initiated</p>
+                <div class="timeline-details">
+                  <span class="detail-item">Size: 15.7 MB</span>
+                  <span class="detail-item">Duration: 32:45</span>
+                  <span class="detail-item">Progress: 67%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 67%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker upload"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>File Uploaded</h4>
+                  <span class="timeline-time">8 minutes ago</span>
+                </div>
+                <p><strong>podcast_episode_12.wav</strong> uploaded successfully</p>
+                <div class="timeline-details">
+                  <span class="detail-item">Size: 15.7 MB</span>
+                  <span class="detail-item">Format: WAV</span>
+                  <span class="detail-item">Quality: High</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker success"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>Denoising Completed</h4>
+                  <span class="timeline-time">1 hour ago</span>
+                </div>
+                <p><strong>ambient_sounds.flac</strong> noise reduction finished</p>
+                <div class="timeline-details">
+                  <span class="detail-item">Noise Reduced: 78%</span>
+                  <span class="detail-item">Quality Improved: 23%</span>
+                  <span class="detail-item">Environment: Nature</span>
+                </div>
+                <div class="timeline-actions">
+                  <button class="btn-link">Compare Audio</button>
+                  <button class="btn-link">Download Clean</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker upload"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>File Uploaded</h4>
+                  <span class="timeline-time">3 hours ago</span>
+                </div>
+                <p><strong>interview_audio.mp3</strong> uploaded and queued for processing</p>
+                <div class="timeline-details">
+                  <span class="detail-item">Size: 4.2 MB</span>
+                  <span class="detail-item">Duration: 8:45</span>
+                  <span class="detail-item">Format: MP3</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker error"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>Processing Failed</h4>
+                  <span class="timeline-time">Yesterday</span>
+                </div>
+                <p><strong>corrupted_file.wav</strong> could not be processed</p>
+                <div class="timeline-details">
+                  <span class="detail-item error">Error: Invalid audio format</span>
+                  <span class="detail-item">Size: 0.5 MB</span>
+                </div>
+                <div class="timeline-actions">
+                  <button class="btn-link">Retry</button>
+                  <button class="btn-link">View Error Log</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="load-more-container">
+            <button class="btn btn-secondary">Load More History</button>
+          </div>
+        </section>
+        <!-- Profile Section -->
+        <section id="profile-section" class="dashboard-section">
+          <div class="section-header">
+            <h1>Profile Settings</h1>
+            <p>Manage your account and preferences</p>
+          </div>
+
+          <div class="profile-grid">
+            <div class="profile-card">
+              <div class="profile-header">
+                <div class="profile-avatar-large">
+                  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238b5cf6'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-family='Arial'%3EJD%3C/text%3E%3C/svg%3E" alt="Profile" />
+                  <button class="avatar-edit-btn">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="profile-info">
+                  <h2>John Doe</h2>
+                  <p>john.doe@example.com</p>
+                  <span class="profile-badge">Pro Plan</span>
+                </div>
+              </div>
+
+              <div class="profile-stats">
+                <div class="profile-stat">
+                  <h4>24</h4>
+                  <p>Files Processed</p>
+                </div>
+                <div class="profile-stat">
+                  <h4>47h</h4>
+                  <p>Audio Analyzed</p>
+                </div>
+                <div class="profile-stat">
+                  <h4>96%</h4>
+                  <p>Avg Accuracy</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <h3>Account Information</h3>
+              <form class="settings-form">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" value="John Doe" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" value="john.doe@example.com" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="tel" value="+1 (555) 123-4567" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label>Company</label>
+                  <input type="text" value="Tech Innovations Inc." class="form-input">
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </form>
+            </div>
+
+            <div class="settings-card">
+              <h3>Preferences</h3>
+              <div class="preference-item">
+                <div class="preference-info">
+                  <h4>Email Notifications</h4>
+                  <p>Receive updates about your audio processing</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="preference-item">
+                <div class="preference-info">
+                  <h4>Auto-Process Uploads</h4>
+                  <p>Automatically start processing when files are uploaded</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="preference-item">
+                <div class="preference-info">
+                  <h4>High Quality Processing</h4>
+                  <p>Use maximum quality settings (slower processing)</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="preference-item">
+                <div class="preference-info">
+                  <h4>Dark Mode</h4>
+                  <p>Use dark theme for the interface</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="dark-mode-toggle">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <h3>Subscription & Billing</h3>
+              <div class="subscription-info">
+                <div class="plan-details">
+                  <h4>Pro Plan</h4>
+                  <p>$29/month • Renews on March 15, 2025</p>
+                </div>
+                <div class="plan-usage">
+                  <div class="usage-item">
+                    <span>Storage Used</span>
+                    <span>6.8 GB / 10 GB</span>
+                  </div>
+                  <div class="usage-item">
+                    <span>Processing Hours</span>
+                    <span>47 / 100 hours</span>
+                  </div>
+                  <div class="usage-item">
+                    <span>API Calls</span>
+                    <span>1,247 / 5,000</span>
+                  </div>
+                </div>
+                <div class="plan-actions">
+                  <button class="btn btn-secondary">Change Plan</button>
+                  <button class="btn btn-primary">Upgrade</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-card danger-zone">
+              <h3>Danger Zone</h3>
+              <div class="danger-item">
+                <div class="danger-info">
+                  <h4>Export Data</h4>
+                  <p>Download all your data and analysis results</p>
+                </div>
+                <button class="btn btn-secondary">Export</button>
+              </div>
+              <div class="danger-item">
+                <div class="danger-info">
+                  <h4>Delete Account</h4>
+                  <p>Permanently delete your account and all data</p>
+                </div>
+                <button class="btn btn-danger">Delete Account</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Settings Section -->
+        <section id="settings-section" class="dashboard-section">
+          <div class="section-header">
+            <h1>Settings</h1>
+            <p>Configure your audio processing preferences and system settings</p>
+          </div>
+
+          <div class="settings-grid">
+            <div class="settings-card">
+              <h3>Processing Settings</h3>
+              <div class="setting-item">
+                <label>Default Audio Quality</label>
+                <select class="form-select">
+                  <option>Standard (Faster)</option>
+                  <option selected>High (Recommended)</option>
+                  <option>Maximum (Slower)</option>
+                </select>
+              </div>
+              <div class="setting-item">
+                <label>Noise Reduction Level</label>
+                <div class="slider-container">
+                  <input type="range" min="0" max="100" value="75" class="slider">
+                  <span class="slider-value">75%</span>
+                </div>
+              </div>
+              <div class="setting-item">
+                <label>Auto-Delete Processed Files</label>
+                <select class="form-select">
+                  <option>Never</option>
+                  <option>After 30 days</option>
+                  <option selected>After 90 days</option>
+                  <option>After 1 year</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <h3>API & Integrations</h3>
+              <div class="api-key-section">
+                <label>API Key</label>
+                <div class="api-key-container">
+                  <input type="password" value="nm_sk_1234567890abcdef" class="api-key-input" readonly>
+                  <button class="btn-icon" onclick="toggleApiKey(this)">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                  <button class="btn-icon" onclick="copyApiKey()">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <button class="btn btn-secondary">Regenerate Key</button>
+              </div>
+              
+              <div class="webhook-section">
+                <label>Webhook URL</label>
+                <input type="url" placeholder="https://your-app.com/webhook" class="form-input">
+                <div class="webhook-events">
+                  <h4>Events</h4>
+                  <label class="checkbox-item">
+                    <input type="checkbox" checked>
+                    <span>Processing Complete</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span>Processing Failed</span>
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span>File Uploaded</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <h3>Security</h3>
+              <div class="security-item">
+                <div class="security-info">
+                  <h4>Two-Factor Authentication</h4>
+                  <p>Add an extra layer of security to your account</p>
+                </div>
+                <button class="btn btn-primary">Enable 2FA</button>
+              </div>
+              <div class="security-item">
+                <div class="security-info">
+                  <h4>Active Sessions</h4>
+                  <p>Manage devices that are signed into your account</p>
+                </div>
+                <button class="btn btn-secondary">View Sessions</button>
+              </div>
+              <div class="security-item">
+                <div class="security-info">
+                  <h4>Change Password</h4>
+                  <p>Update your account password</p>
+                </div>
+                <button class="btn btn-secondary">Change Password</button>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <h3>Data & Privacy</h3>
+              <div class="privacy-item">
+                <div class="privacy-info">
+                  <h4>Data Retention</h4>
+                  <p>How long we keep your processed audio files</p>
+                </div>
+                <select class="form-select">
+                  <option>30 days</option>
+                  <option selected>90 days</option>
+                  <option>1 year</option>
+                  <option>Forever</option>
+                </select>
+              </div>
+              <div class="privacy-item">
+                <div class="privacy-info">
+                  <h4>Analytics Sharing</h4>
+                  <p>Help improve our service by sharing anonymous usage data</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="privacy-item">
+                <div class="privacy-info">
+                  <h4>Marketing Communications</h4>
+                  <p>Receive updates about new features and improvements</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Notification Panel -->
+    <div id="notification-panel" class="notification-panel hidden">
+      <div class="notification-header">
+        <h3>Notifications</h3>
+        <button class="btn-link" onclick="markAllRead()">Mark all read</button>
+      </div>
+      <div class="notification-list">
+        <div class="notification-item unread">
+          <div class="notification-icon success">✓</div>
+          <div class="notification-content">
+            <p><strong>meeting_recording.mp3</strong> analysis completed</p>
+            <span class="notification-time">2 minutes ago</span>
+          </div>
+        </div>
+        <div class="notification-item unread">
+          <div class="notification-icon processing">⟳</div>
+          <div class="notification-content">
+            <p><strong>podcast_episode_12.wav</strong> is 67% processed</p>
+            <span class="notification-time">5 minutes ago</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon upload">↑</div>
+          <div class="notification-content">
+            <p><strong>ambient_sounds.flac</strong> uploaded successfully</p>
+            <span class="notification-time">1 hour ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Profile Dropdown Menu -->
+    <div id="profile-menu" class="profile-menu hidden">
+      <div class="profile-menu-header">
+        <div class="profile-avatar-small">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238b5cf6'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-family='Arial'%3EJD%3C/text%3E%3C/svg%3E" alt="Profile" />
+        </div>
+        <div class="profile-menu-info">
+          <h4>John Doe</h4>
+          <p>john.doe@example.com</p>
+        </div>
+      </div>
+      <div class="profile-menu-items">
+        <button class="profile-menu-item" onclick="showSection('profile')">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Profile Settings
+        </button>
+        <button class="profile-menu-item" onclick="showSection('settings')">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          Settings
+        </button>
+        <button class="profile-menu-item">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16,17 21,12 16,7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          Sign Out
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Dashboard functionality
+      let currentSection = 'overview';
+
+      // Initialize dashboard
+      document.addEventListener('DOMContentLoaded', function() {
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+          document.documentElement.classList.add('dark-mode');
+          const darkModeToggle = document.getElementById('dark-mode-toggle');
+          if (darkModeToggle) darkModeToggle.checked = true;
+        }
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.profile-dropdown')) {
+            document.getElementById('profile-menu').classList.add('hidden');
+          }
+          if (!e.target.closest('.notification-btn')) {
+            document.getElementById('notification-panel').classList.add('hidden');
+          }
+        });
+      });
+
+      // Section navigation
+      function showSection(sectionName) {
+        // Hide all sections
+        document.querySelectorAll('.dashboard-section').forEach(section => {
+          section.classList.remove('active');
+        });
+        
+        // Remove active class from all menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        
+        // Show selected section
+        document.getElementById(sectionName + '-section').classList.add('active');
+        
+        // Add active class to selected menu item
+        document.querySelector(`[onclick="showSection('${sectionName}')"]`).classList.add('active');
+        
+        currentSection = sectionName;
+        
+        // Close profile menu if open
+        document.getElementById('profile-menu').classList.add('hidden');
+      }
+
+      // Dark mode toggle
+      function toggleDarkMode() {
+        const html = document.documentElement;
+        const isDarkMode = html.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+        
+        // Update profile settings toggle if on that page
+        const profileToggle = document.getElementById('dark-mode-toggle');
+        if (profileToggle) {
+          profileToggle.checked = isDarkMode;
+        }
+      }
+
+      // Profile dropdown
+      function toggleProfileMenu() {
+        const menu = document.getElementById('profile-menu');
+        menu.classList.toggle('hidden');
+      }
+
+      // Notifications
+      function toggleNotifications() {
+        const panel = document.getElementById('notification-panel');
+        panel.classList.toggle('hidden');
+      }
+
+      function markAllRead() {
+        document.querySelectorAll('.notification-item.unread').forEach(item => {
+          item.classList.remove('unread');
+        });
+        document.querySelector('.notification-badge').style.display = 'none';
+      }
+
+      // API Key functions
+      function toggleApiKey(button) {
+        const input = button.parentElement.querySelector('.api-key-input');
+        if (input.type === 'password') {
+          input.type = 'text';
+        } else {
+          input.type = 'password';
+        }
+      }
+
+      function copyApiKey() {
+        const input = document.querySelector('.api-key-input');
+        input.select();
+        document.execCommand('copy');
+        
+        // Show feedback
+        const button = event.target.closest('button');
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16"><polyline points="20,6 9,17 4,12"></polyline></svg>';
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+        }, 2000);
+      }
+
+      // Slider value update
+      document.querySelectorAll('.slider').forEach(slider => {
+        slider.addEventListener('input', function() {
+          const valueSpan = this.parentElement.querySelector('.slider-value');
+          valueSpan.textContent = this.value + '%';
+        });
+      });
+
+      // Form submissions (placeholder)
+      document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('Settings saved successfully!');
+        });
+      });
+    </script>
+  </body>
+</html>

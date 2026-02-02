@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,7 +21,7 @@
         "
       >
         <div>
-          <a class="btn btn-back" href="index.html">← Back to Home</a>
+          <a class="btn btn-back" href="dashboard.html">← Back to Dashboard</a>
           <h2 style="color: var(--text-dark); font-size: 2.2rem">
             Audio Playground
           </h2>
@@ -74,7 +73,6 @@
             <input
               type="file"
               id="file-input"
-              accept="audio/*"
               hidden
               onchange="handleProcess(this)"
             />
@@ -152,24 +150,6 @@
     </section>
 
     <script>
-      
-        function validateAndProcess(input) {
-          const file = input.files[0];
-        
-          // If no file selected
-          if (!file) return;
-        
-          // ❌ Block non-audio files
-          if (!file.type.startsWith("audio/")) {
-            alert("Only audio files are allowed!");
-            input.value = "";   // reset file input
-            return;
-          }
-        
-          // ✅ Valid audio → continue existing logic
-          handleProcess(input);
-        }
-      
       document.addEventListener("DOMContentLoaded", function () {
         const isDarkMode = localStorage.getItem("darkMode") === "true";
         if (isDarkMode) {
@@ -197,4 +177,3 @@
     </script>
   </body>
 </html>
-
